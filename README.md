@@ -35,5 +35,9 @@ The following elementary sorts are implemented:
 1 QuickSort   
 2 MergeSort      
   
+# Binary Search Tree
 
+# Graphs
+## Basic Graph Traversal
+## Dijkstra's Algorithm
   
