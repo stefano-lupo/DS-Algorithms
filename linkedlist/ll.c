@@ -31,6 +31,8 @@ Node* searchForNode(int data);
 void addNodeToStart(int data);
 void addNodeAfterData(int searchData, int newNodeAfterData);
 void reverseLinkedList();
+void removeNodeFromList(int data);
+
 
 int main(){
     
@@ -193,4 +195,34 @@ void reverseLinkedList(){
     // Set new head of list
     head = current;
 
+}
+
+void removeNodeFromList(int data) {
+    // Handle case where data is found in first node
+    if (head -> data == data) {
+        
+        Node* oldHead = head;
+        head = head -> next;
+        free(oldHead);
+        return;
+    }
+    
+    Node* current = head;
+    Node* previous = NULL;
+
+    while (current != NULL) {
+        if (current -> data == data) {           
+            // Connect the previous node's next to the next node
+            previous -> next = current->next;
+
+            // We've found the element
+            free(current);
+            
+            return;
+        }
+
+        // Move our two pointers down the list 1 spot
+        previous = current;
+        current = current -> next;
+    }
 }
